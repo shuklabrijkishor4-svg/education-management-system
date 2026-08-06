@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learners Academy — Learn. Build. Get Certified.</title>
+<meta name="description" content="Learners Academy is a modern education platform offering career-focused courses in tech, design, and marketing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="page-loader" id="pageLoader"><div class="chalk-spinner"></div></div>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="mark">B</span> Learners Academy</a>
+    <ul class="nav-links" data-auth-nav>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="courses.html">Register Now</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <a href="courses.html" class="btn btn-primary btn-sm" data-guest-actions>Register Now</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div>
+      <span class="eyebrow">Enrollment open for the next cohort</span>
+      <h1>Turn your curiosity into a career, one enrollment at a time.</h1>
+      <p class="lead">Learners Academy pairs practical, mentor-led courses with a simple enrollment system — register once, get a unique enrollment number, and track everything from your dashboard.</p>
+      <div class="hero-ctas">
+        <a href="courses.html" class="btn btn-primary">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="login.html" class="btn btn-outline" style="color:#faf6ec;border-color:rgba(250,246,236,0.4);">Already Have an Account? Login</a>
+      </div>
+    </div>
+    <div class="ticket reveal">
+      <div class="tear-line"></div>
+      <div class="ticket-row"><span class="ticket-label">Student</span><span>Riya Sharma</span></div>
+      <div class="ticket-row"><span class="ticket-label">Course</span><span>Full Stack Development</span></div>
+      <div class="ticket-row"><span class="ticket-label">Enrollment No.</span><span class="enroll-no">A3F7K9</span></div>
+      <div class="ticket-row"><span class="ticket-label">Status</span><span class="badge">Active</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURED COURSES -->
+<section class="section" id="courses">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Featured Courses</span>
+      <h2>Start with what the industry is hiring for</h2>
+      <p>A snapshot of our most-enrolled programs — see the full catalog for all twelve courses.</p>
+    </div>
+    <div class="grid cols-4" id="featuredCourses"></div>
+    <div class="text-center" style="margin-top:36px;">
+      <a href="courses.html" class="btn btn-outline">View All Courses</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>Built for people who want proof of what they've learned</h2>
+    </div>
+    <div class="grid cols-4">
+      <div class="card reveal"><div class="card-icon"><i class="fa-solid fa-id-badge"></i></div><h3>Instant Enrollment ID</h3><p>Every student receives a unique 6-character enrollment number the moment registration completes.</p></div>
+      <div class="card reveal"><div class="card-icon"><i class="fa-solid fa-chalkboard-user"></i></div><h3>Mentor-Led Learning</h3><p>Every course is taught live by an industry mentor, not a pre-recorded playlist.</p></div>
+      <div class="card reveal"><div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Secure by Design</h3><p>Hashed passwords, protected sessions, and validated forms keep student data safe.</p></div>
+      <div class="card reveal"><div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div><h3>One Dashboard</h3><p>Track your course, update your profile, and manage your account in a single place.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-band">
+  <div class="container">
+    <div class="grid">
+      <div class="reveal"><div class="stat-num">4,200+</div><div class="stat-label">Students Enrolled</div></div>
+      <div class="reveal"><div class="stat-num">12</div><div class="stat-label">Career Tracks</div></div>
+      <div class="reveal"><div class="stat-num">96%</div><div class="stat-label">Completion Rate</div></div>
+      <div class="reveal"><div class="stat-num">4.8/5</div><div class="stat-label">Average Rating</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Student Testimonials</span>
+      <h2>What life looks like after enrollment</h2>
+    </div>
+    <div class="grid cols-3">
+      <div class="card testimonial-card reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <p>The dashboard made it easy to see exactly where I stood — enrollment number, course, everything in one card.</p>
+        <div class="testimonial-person"><div class="avatar">P</div><div><strong>Priyanshu Gupta</strong><div style="font-size:0.8rem;color:var(--text-muted);">Web Development, 2025</div></div></div>
+      </div>
+      <div class="card testimonial-card reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <p>Registration took five minutes and I had my enrollment number instantly. Support answered every question fast.</p>
+        <div class="testimonial-person"><div class="avatar">S</div><div><strong>Simran Kaur</strong><div style="font-size:0.8rem;color:var(--text-muted);">Data Science, 2025</div></div></div>
+      </div>
+      <div class="card testimonial-card reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <p>I switched courses mid-way and updating my profile took two clicks. No paperwork, no waiting in line.</p>
+        <div class="testimonial-person"><div class="avatar">D</div><div><strong>Dev Anand</strong><div style="font-size:0.8rem;color:var(--text-muted);">Cyber Security, 2024</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Good to know before you register</h2>
+    </div>
+    <div style="max-width:760px;margin:0 auto;">
+      <details class="accordion-item reveal" open><summary>How do I get my enrollment number?</summary><p>It's generated automatically the moment your registration form is submitted successfully — no waiting period.</p></details>
+      <details class="accordion-item reveal"><summary>Can I log in with either my email or enrollment number?</summary><p>Yes. The login page accepts your enrollment number or the email address you registered with, alongside your password.</p></details>
+      <details class="accordion-item reveal"><summary>Can I change my course after registering?</summary><p>Yes, from your Profile page you can update your course selection and it saves directly to your record.</p></details>
+      <details class="accordion-item reveal"><summary>How do I delete my account?</summary><p>Go to your Dashboard or Profile page and choose Delete Account. You'll be asked to confirm before anything is removed.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT PREVIEW -->
+<section class="section">
+  <div class="container">
+    <div class="card reveal" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding:44px;">
+      <div>
+        <span class="eyebrow">Still deciding?</span>
+        <h2 class="mb-0">Talk to an admissions mentor this week</h2>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="grid footer-grid">
+      <div>
+        <a href="index.html" class="brand" style="color:var(--paper);margin-bottom:14px;"><span class="mark">B</span> Learners Academy</a>
+        <p style="max-width:320px;">Career-focused courses with a real enrollment system behind them — not just a certificate at the end.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Account</h4><ul><li><a href="register.html">Register</a></li><li><a href="login.html">Login</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>shuklabrijkishore4@gmail.com</li><li>+91 63937 06103</li><li>Kanpur, Uttar Pradesh, India</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Learners Academy. All rights reserved.</span>
+      <span>Built with the Chalkboard &amp; Brass design system.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const grid = document.getElementById('featuredCourses');
+  window.APP_CONFIG.COURSES.slice(0, 4).forEach((c) => {
+    grid.insertAdjacentHTML('beforeend', `
+      <div class="card course-card reveal">
+        <div class="course-media"><i class="${c.icon} course-icon"></i></div>
+        <div class="course-body">
+          <h3>${c.name}</h3>
+          <div class="course-meta"><span class="pill"><i class="fa-regular fa-clock"></i> ${c.duration}</span></div>
+          <p style="font-size:0.9rem;">${c.desc}</p>
+          <a href="courses.html" class="btn btn-outline btn-sm" style="margin-top:14px;">View Details</a>
+        </div>
+      </div>
+    `);
+  });
+</script>
+</body>
+</html>

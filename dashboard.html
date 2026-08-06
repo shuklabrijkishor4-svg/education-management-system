@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Learners Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div class="page-loader" id="pageLoader"><div class="chalk-spinner"></div></div>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="mark">B</span> Learners Academy</a>
+    <ul class="nav-links" data-auth-nav>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="dashboard.html" class="active">Dashboard</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="#" id="logoutLink">Logout</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="dash-shell">
+  <aside class="sidebar">
+    <a href="dashboard.html" class="side-link active"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="profile.html" class="side-link"><i class="fa-solid fa-user"></i> Profile</a>
+    <a href="courses.html" class="side-link"><i class="fa-solid fa-book"></i> Courses</a>
+    <a href="contact.html" class="side-link"><i class="fa-solid fa-headset"></i> Contact</a>
+    <a href="#" class="side-link" id="sidebarLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-header">
+      <div>
+        <span class="eyebrow">Student Dashboard</span>
+        <h2 id="welcomeHeading" style="margin-bottom:4px;">Welcome, Student</h2>
+        <p class="mb-0">Here's everything tied to your enrollment.</p>
+      </div>
+      <button class="btn btn-outline btn-sm" id="printProfileBtn"><i class="fa-solid fa-print"></i> Print Profile</button>
+    </div>
+
+    <div class="grid cols-2" style="margin-bottom:28px;">
+      <div class="card">
+        <div class="profile-card">
+          <img class="profile-photo" id="dashPhoto" src="" alt="Profile photo" style="display:none;">
+          <div class="card-icon" id="dashPhotoFallback" style="margin:0;width:84px;height:84px;border-radius:50%;font-size:1.8rem;"><i class="fa-solid fa-user"></i></div>
+          <div>
+            <h3 id="dashName" style="margin-bottom:4px;">—</h3>
+            <span class="badge" id="dashEnroll">—</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="info-row"><span class="k">Course</span><span class="v" id="dashCourse">—</span></div>
+        <div class="info-row"><span class="k">Email</span><span class="v" id="dashEmail">—</span></div>
+        <div class="info-row"><span class="k">Mobile</span><span class="v" id="dashMobile">—</span></div>
+        <div class="info-row"><span class="k">Registered On</span><span class="v" id="dashRegDate">—</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:28px;">
+      <h3>Address on File</h3>
+      <p id="dashAddress" class="mb-0">—</p>
+    </div>
+
+    <div class="grid cols-4">
+      <a href="profile.html" class="card reveal in" style="text-decoration:none;">
+        <div class="card-icon"><i class="fa-solid fa-id-card"></i></div>
+        <h3 style="font-size:1.05rem;">My Profile</h3>
+        <p style="font-size:0.85rem;">View your full registration details.</p>
+      </a>
+      <a href="courses.html" class="card reveal in" style="text-decoration:none;">
+        <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3 style="font-size:1.05rem;">My Course</h3>
+        <p style="font-size:0.85rem;">Browse or switch your enrolled course.</p>
+      </a>
+      <a href="profile.html#edit" class="card reveal in" style="text-decoration:none;">
+        <div class="card-icon"><i class="fa-solid fa-pen"></i></div>
+        <h3 style="font-size:1.05rem;">Update Profile</h3>
+        <p style="font-size:0.85rem;">Edit contact details or course.</p>
+      </a>
+      <div class="card reveal in" id="deleteAccountCard" style="cursor:pointer;">
+        <div class="card-icon" style="color:var(--danger);"><i class="fa-solid fa-trash"></i></div>
+        <h3 style="font-size:1.05rem;">Delete Account</h3>
+        <p style="font-size:0.85rem;">Permanently remove your record.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Delete confirmation modal -->
+<div class="modal-overlay" id="deleteModal">
+  <div class="modal-box">
+    <h3>Delete your account?</h3>
+    <p>Are you sure you want to permanently delete your account? This removes your record from Google Sheets and cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-outline btn-block" id="cancelDelete">Cancel</button>
+      <button class="btn btn-danger btn-block" id="confirmDelete">Yes, Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

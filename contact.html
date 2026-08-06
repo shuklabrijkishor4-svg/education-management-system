@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Learners Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div class="page-loader" id="pageLoader"><div class="chalk-spinner"></div></div>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="mark">B</span> Learners Academy</a>
+    <ul class="nav-links" data-auth-nav>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="contact.html" class="active">Contact Us</a></li>
+      <li><a href="courses.html">Register Now</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <a href="courses.html" class="btn btn-primary btn-sm" data-guest-actions>Register Now</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding:70px 0;">
+  <div class="container" style="grid-template-columns:1fr;text-align:center;">
+    <div>
+      <span class="eyebrow">Get in Touch</span>
+      <h1>Questions about a course or your enrollment?</h1>
+      <p class="lead" style="margin:0 auto;">Reach the admissions team directly, or drop a message and we'll respond within one business day.</p>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container grid cols-2">
+    <div class="form-card reveal">
+      <h2 style="font-size:1.5rem;">Send a Message</h2>
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="cName">Full Name <span class="req">*</span></label>
+          <input type="text" id="cName" name="name" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="cEmail">Email Address <span class="req">*</span></label>
+          <input type="email" id="cEmail" name="email" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="cSubject">Subject <span class="req">*</span></label>
+          <input type="text" id="cSubject" name="subject" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="cMessage">Message <span class="req">*</span></label>
+          <textarea id="cMessage" name="message" required></textarea>
+          <div class="field-error"></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="contactSubmit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="reveal">
+      <div class="card" style="margin-bottom:20px;">
+        <h3>Institute Address</h3>
+        <p><i class="fa-solid fa-location-dot"></i> Learners Academy,Online</p>
+        <p><i class="fa-solid fa-envelope"></i> shuklabrijkishore4@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> +91 63937 06103</p>
+        <p><i class="fa-brands fa-whatsapp"></i> +91 63937 06103 (WhatsApp)</p>
+        <div class="social-row" style="margin-top:14px;">
+          <a href="#" style="border-color:var(--border-chalk);"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" style="border-color:var(--border-chalk);"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" style="border-color:var(--border-chalk);"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="map-embed" style="height:280px;">
+       
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="grid footer-grid">
+      <div>
+        <a href="index.html" class="brand" style="color:var(--paper);margin-bottom:14px;"><span class="mark">B</span> Learners Academy</a>
+        <p style="max-width:320px;">Career-focused courses with a real enrollment system behind them — not just a certificate at the end.</p>
+        <div class="social-row"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a></div>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Account</h4><ul><li><a href="register.html">Register</a></li><li><a href="login.html">Login</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>shuklabrijkishore4@gmail.com</li><li>+91 63937 06103</li><li>Kanpur, Uttar Pradesh, India</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Learners Academy. All rights reserved.</span><span>Built with the Chalkboard &amp; Brass design system.</span></div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

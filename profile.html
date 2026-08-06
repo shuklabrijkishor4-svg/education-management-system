@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile — Learners Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div class="page-loader" id="pageLoader"><div class="chalk-spinner"></div></div>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="mark">B</span> Learners Academy</a>
+    <ul class="nav-links" data-auth-nav>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="profile.html" class="active">Profile</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="#" id="logoutLink">Logout</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="dash-shell">
+  <aside class="sidebar">
+    <a href="dashboard.html" class="side-link"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="profile.html" class="side-link active"><i class="fa-solid fa-user"></i> Profile</a>
+    <a href="courses.html" class="side-link"><i class="fa-solid fa-book"></i> Courses</a>
+    <a href="contact.html" class="side-link"><i class="fa-solid fa-headset"></i> Contact</a>
+    <a href="#" class="side-link" id="sidebarLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-header">
+      <div>
+        <span class="eyebrow">My Profile</span>
+        <h2 style="margin-bottom:4px;">Manage your student record</h2>
+        <p class="mb-0">Enrollment number <strong id="profileEnrollBadge">—</strong> — changes save straight to Google Sheets.</p>
+      </div>
+    </div>
+
+    <form class="form-card" id="profileForm" style="max-width:760px;">
+      <div class="photo-upload" style="margin-bottom:24px;">
+        <img class="profile-photo" id="profilePhotoImg" src="" alt="Profile photo" style="display:none;">
+        <div class="card-icon" id="profilePhotoFallback" style="margin:0;width:84px;height:84px;border-radius:50%;font-size:1.8rem;"><i class="fa-solid fa-user"></i></div>
+        <div>
+          <label style="display:block;margin-bottom:8px;">Update Profile Photo</label>
+          <input type="file" id="profilePhotoInput" accept="image/*">
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="pFullName">Full Name <span class="req">*</span></label>
+          <input type="text" id="pFullName" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="pMobile">Mobile Number <span class="req">*</span></label>
+          <input type="tel" id="pMobile" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="pEmail">Email Address <span class="req">*</span></label>
+          <input type="email" id="pEmail" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="pAddress">Address <span class="req">*</span></label>
+          <textarea id="pAddress" required></textarea>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="pCity">City <span class="req">*</span></label>
+          <input type="text" id="pCity" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="pState">State <span class="req">*</span></label>
+          <input type="text" id="pState" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="pCourse">Course <span class="req">*</span></label>
+          <select id="pCourse" required></select>
+          <div class="field-error"></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+        <button type="submit" class="btn btn-primary" id="profileSaveBtn"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+        <button type="button" class="btn btn-outline" id="profilePrintBtn"><i class="fa-solid fa-print"></i> Print Profile</button>
+        <button type="button" class="btn btn-danger" id="profileDeleteBtn" style="margin-left:auto;"><i class="fa-solid fa-trash"></i> Delete Account</button>
+      </div>
+    </form>
+
+    <div class="card" style="max-width:760px;margin-top:24px;">
+      <h3 style="font-size:1.05rem;">Read-only Record Details</h3>
+      <div class="info-row"><span class="k">Enrollment Number</span><span class="v" id="roEnroll">—</span></div>
+      <div class="info-row"><span class="k">Registration Date</span><span class="v" id="roDate">—</span></div>
+      <div class="info-row"><span class="k">Father's Name</span><span class="v" id="roFather">—</span></div>
+      <div class="info-row"><span class="k">Mother's Name</span><span class="v" id="roMother">—</span></div>
+      <div class="info-row"><span class="k">Date of Birth</span><span class="v" id="roDob">—</span></div>
+      <div class="info-row"><span class="k">Qualification</span><span class="v" id="roQual">—</span></div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="deleteModal">
+  <div class="modal-box">
+    <h3>Delete your account?</h3>
+    <p>Are you sure you want to permanently delete your account? This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-outline btn-block" id="cancelDelete">Cancel</button>
+      <button class="btn btn-danger btn-block" id="confirmDelete">Yes, Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

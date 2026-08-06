@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses — Learners Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div class="page-loader" id="pageLoader"><div class="chalk-spinner"></div></div>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="mark">B</span> Learners Academy</a>
+    <ul class="nav-links" data-auth-nav>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="courses.html" class="active">Courses</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="courses.html">Register Now</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <a href="courses.html" class="btn btn-primary btn-sm" data-guest-actions>Register Now</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding:70px 0;">
+  <div class="container" style="grid-template-columns:1fr;text-align:center;">
+    <div>
+      <span class="eyebrow">Course Catalog</span>
+      <h1>Twelve tracks. One enrollment system.</h1>
+      <p class="lead" style="margin:0 auto;">Search or filter to find your track, then enroll straight from the card — registration takes under five minutes.</p>
+    </div>
+  </div>
+</header>
+
+<section class="section" style="padding-top:56px;">
+  <div class="container">
+    <div class="card reveal" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:22px;margin-bottom:40px;">
+      <div class="field" style="flex:2;min-width:220px;margin:0;">
+        <input type="text" id="courseSearch" placeholder="Search courses (e.g. Python, Design)...">
+      </div>
+      <div class="field" style="flex:1;min-width:180px;margin:0;">
+        <select id="courseFilter">
+          <option value="all">All Durations</option>
+          <option value="short">1–3 Months</option>
+          <option value="long">6 Months+</option>
+        </select>
+      </div>
+    </div>
+    <div class="card reveal" id="loginNotice" style="display:none;margin-bottom:24px;padding:18px 22px;border-left:4px solid var(--brass);">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <i class="fa-solid fa-lock" style="color:var(--brass);"></i>
+          <span>Please <strong>register or log in</strong> to enroll in a course.</span>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <a href="register.html" class="btn btn-outline btn-sm">Register</a>
+          <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid cols-4" id="courseGrid"></div>
+    <p class="text-center" id="noResults" style="display:none;margin-top:20px;">No courses match your search — try a different keyword.</p>
+  </div>
+</section>
+
+<!-- Quick Enroll Modal — captures a lead with just 4 fields; full registration
+     (with password, address, etc.) still happens later on register.html -->
+<div class="modal-overlay" id="quickEnrollModal">
+  <div class="modal-box" style="max-width:460px;">
+    <h3 style="margin-bottom:4px;">Enroll Now</h3>
+    <p style="font-size:0.88rem;margin-bottom:18px;">Course: <strong id="qeCourseName">—</strong></p>
+    <form id="quickEnrollForm" novalidate>
+      <div class="field">
+        <label for="qeName">Student's Name <span class="req">*</span></label>
+        <input type="text" id="qeName" required>
+        <div class="field-error"></div>
+      </div>
+      <div class="field">
+        <label for="qeFatherName">Father's Name <span class="req">*</span></label>
+        <input type="text" id="qeFatherName" required>
+        <div class="field-error"></div>
+      </div>
+      <div class="field">
+        <label for="qeMobile">Mobile Number <span class="req">*</span></label>
+        <input type="tel" id="qeMobile" placeholder="10-digit mobile number" required>
+        <div class="field-error"></div>
+      </div>
+      <div class="field">
+        <label for="qeEmail">Email Address <span class="req">*</span></label>
+        <input type="email" id="qeEmail" required>
+        <div class="field-error"></div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline btn-block" id="qeCancelBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-block" id="qeSubmitBtn">Submit</button>
+      </div>
+    </form>
+    <div id="qeSuccess" style="display:none;text-align:center;">
+      <div class="card-icon" style="margin:0 auto 14px;background:var(--success);color:#fff;"><i class="fa-solid fa-check"></i></div>
+      <h3 style="font-size:1.15rem;">Thanks — you're on our list!</h3>
+      <p style="font-size:0.9rem;">Our admissions team will call you shortly to complete your full registration and enrollment number.</p>
+      <button class="btn btn-outline btn-block" id="qeCloseBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="grid footer-grid">
+      <div>
+        <a href="index.html" class="brand" style="color:var(--paper);margin-bottom:14px;"><span class="mark">B</span> Learners Academy</a>
+        <p style="max-width:320px;">Career-focused courses with a real enrollment system behind them — not just a certificate at the end.</p>
+        <div class="social-row"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a><a href="#"><i class="fa-brands fa-youtube"></i></a></div>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="about.html">About Us</a></li><li><a href="courses.html">Courses</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Account</h4><ul><li><a href="register.html">Register</a></li><li><a href="login.html">Login</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>shuklabrijkishore4@gmail.com</li><li>+91 63937 06103</li><li>Kanpur, Uttar Pradesh, India</li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Learners Academy. All rights reserved.</span><span>Built with the Chalkboard &amp; Brass design system.</span></div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const grid = document.getElementById('courseGrid');
+  const searchInput = document.getElementById('courseSearch');
+  const filterSelect = document.getElementById('courseFilter');
+  const noResults = document.getElementById('noResults');
+  const loginNotice = document.getElementById('loginNotice');
+  let isLoggedIn = false; // updated once /api/session responds; buttons stay locked until then
+
+  function durationBucket(duration) {
+    const months = parseInt(duration, 10);
+    if (months <= 3) return 'short';
+    if (months <= 5) return 'medium';
+    return 'long';
+  }
+
+  function render() {
+    const q = searchInput.value.trim().toLowerCase();
+    const bucket = filterSelect.value;
+    const list = window.APP_CONFIG.COURSES.filter((c) => {
+      const matchesSearch = !q || c.name.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q);
+      const matchesBucket = bucket === 'all' || durationBucket(c.duration) === bucket;
+      return matchesSearch && matchesBucket;
+    });
+    grid.innerHTML = list.map((c) => `
+      <div class="card course-card reveal in">
+        <div class="course-media"><i class="${c.icon} course-icon"></i></div>
+        <div class="course-body">
+          <h3>${c.name}</h3>
+          <div class="course-meta">
+            <span class="pill"><i class="fa-regular fa-clock"></i> ${c.duration}</span>
+            <span class="pill"><i class="fa-solid fa-chalkboard-user"></i> ${c.instructor}</span>
+          </div>
+          <p style="font-size:0.9rem;">${c.desc}</p>
+          <button class="btn btn-primary btn-sm quick-enroll-btn" data-course-id="${c.id}" data-course-name="${c.name}" style="margin-top:14px;" ${isLoggedIn ? '' : 'disabled'} title="${isLoggedIn ? '' : 'Register or log in first to enroll'}">Enroll Now</button>
+        </div>
+      </div>
+    `).join('');
+    noResults.style.display = list.length ? 'none' : 'block';
+  }
+
+  searchInput.addEventListener('input', render);
+  filterSelect.addEventListener('change', render);
+  render();
+
+  // Check login state, then unlock (or keep locked + show the notice banner).
+  fetch(`${window.APP_CONFIG.API_BASE}/session`, { credentials: 'include' })
+    .then((r) => r.json())
+    .then((data) => {
+      isLoggedIn = !!data.loggedIn;
+      loginNotice.style.display = isLoggedIn ? 'none' : 'block';
+      render();
+    })
+    .catch(() => {
+      isLoggedIn = false;
+      loginNotice.style.display = 'block';
+      render();
+    });
+</script>
+<script src="js/quickEnroll.js"></script>
+</body>
+</html>

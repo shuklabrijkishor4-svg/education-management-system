@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — Learners Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div class="page-loader" id="pageLoader"><div class="chalk-spinner"></div></div>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="mark">B</span> Learners Academy</a>
+    <ul class="nav-links" data-auth-nav>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="courses.html">Register Now</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:60px;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Student Registration</span>
+      <h2>Create your Learners Academy account</h2>
+      <p>Every field below is validated before submission. Once your registration succeeds, your unique 6-character enrollment number appears immediately.</p>
+    </div>
+
+    <!-- SUCCESS STATE (hidden until registration completes) -->
+    <div class="form-card reveal" id="successCard" style="display:none;max-width:520px;margin:0 auto;text-align:center;">
+      <div class="card-icon" style="margin:0 auto 18px;background:var(--success);color:#fff;"><i class="fa-solid fa-check"></i></div>
+      <h2 style="font-size:1.5rem;">You're registered!</h2>
+      <p>Keep your enrollment number safe — you'll use it (or your email) to log in.</p>
+      <div class="ticket" style="transform:none;margin:20px 0;">
+        <div class="tear-line"></div>
+        <div class="ticket-row"><span class="ticket-label">Student</span><span id="successName">—</span></div>
+        <div class="ticket-row"><span class="ticket-label">Course</span><span id="successCourse">—</span></div>
+        <div class="ticket-row"><span class="ticket-label">Enrollment No.</span><span class="enroll-no" id="successEnroll">—</span></div>
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-outline btn-sm" id="downloadReceiptBtn"><i class="fa-solid fa-download"></i> Download Receipt</button>
+        <a href="login.html" class="btn btn-primary btn-sm">Go to Login</a>
+      </div>
+    </div>
+
+    <form class="form-card reveal" id="registerForm" novalidate style="max-width:900px;margin:0 auto;">
+      <h3>Personal Details</h3>
+      <div class="form-grid">
+        <div class="field">
+          <label for="fullName">Full Name <span class="req">*</span></label>
+          <input type="text" id="fullName" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="dob">Date of Birth <span class="req">*</span></label>
+          <input type="date" id="dob" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="fatherName">Father's Name <span class="req">*</span></label>
+          <input type="text" id="fatherName" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="motherName">Mother's Name <span class="req">*</span></label>
+          <input type="text" id="motherName" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="gender">Gender <span class="req">*</span></label>
+          <select id="gender" required>
+            <option value="">Select gender</option>
+            <option>Female</option>
+            <option>Male</option>
+            <option>Other</option>
+            <option>Prefer not to say</option>
+          </select>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="qualification">Qualification <span class="req">*</span></label>
+          <select id="qualification" required>
+            <option value="">Select qualification</option>
+            <option>High School</option>
+            <option>Diploma</option>
+            <option>Undergraduate</option>
+            <option>Graduate</option>
+            <option>Postgraduate</option>
+          </select>
+          <div class="field-error"></div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">Contact Details</h3>
+      <div class="form-grid">
+        <div class="field">
+          <label for="mobile">Mobile Number <span class="req">*</span></label>
+          <input type="tel" id="mobile" placeholder="10-digit mobile number" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" id="email" required>
+          <div class="field-error"></div>
+        </div>
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="address">Address <span class="req">*</span></label>
+          <textarea id="address" required></textarea>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="state">State <span class="req">*</span></label>
+          <select id="state" required>
+            <option value="">Select state</option>
+            <option>Andhra Pradesh</option>
+            <option>Arunachal Pradesh</option>
+            <option>Assam</option>
+            <option>Bihar</option>
+            <option>Chhattisgarh</option>
+            <option>Goa</option>
+            <option>Gujarat</option>
+            <option>Haryana</option>
+            <option>Himachal Pradesh</option>
+            <option>Jharkhand</option>
+            <option>Karnataka</option>
+            <option>Kerala</option>
+            <option>Madhya Pradesh</option>
+            <option>Maharashtra</option>
+            <option>Manipur</option>
+            <option>Meghalaya</option>
+            <option>Mizoram</option>
+            <option>Nagaland</option>
+            <option>Odisha</option>
+            <option>Punjab</option>
+            <option>Rajasthan</option>
+            <option>Sikkim</option>
+            <option>Tamil Nadu</option>
+            <option>Telangana</option>
+            <option>Tripura</option>
+            <option>Uttar Pradesh</option>
+            <option>Uttarakhand</option>
+            <option>West Bengal</option>
+            <option>Delhi</option>
+            <option>Jammu and Kashmir</option>
+            <option>Ladakh</option>
+            <option>Chandigarh</option>
+            <option>Puducherry</option>
+          </select>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="city">District <span class="req">*</span></label>
+          <select id="city" required disabled>
+            <option value="">Select state first</option>
+          </select>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="pincode">PIN Code <span class="req">*</span></label>
+          <input type="text" id="pincode" placeholder="6-digit PIN code" required>
+          <div class="field-error"></div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">Course &amp; Account</h3>
+      <div class="form-grid">
+        <div class="field" style="grid-column:1 / -1;">
+          <label for="course">Course Selection <span class="req">*</span></label>
+          <select id="course" required></select>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="password">Password <span class="req">*</span></label>
+          <div class="password-wrap">
+            <input type="password" id="password" required>
+            <button type="button" class="toggle-pw" data-target="password"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="field-error"></div>
+        </div>
+        <div class="field">
+          <label for="confirmPassword">Confirm Password <span class="req">*</span></label>
+          <div class="password-wrap">
+            <input type="password" id="confirmPassword" required>
+            <button type="button" class="toggle-pw" data-target="confirmPassword"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="field-error"></div>
+        </div>
+        <div class="field" style="grid-column:1 / -1;">
+          <label>Profile Photo (optional)</label>
+          <div class="photo-upload">
+            <div class="photo-preview" id="photoPreview"><i class="fa-solid fa-user"></i></div>
+            <input type="file" id="profilePhoto" accept="image/*">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" id="registerSubmit" style="margin-top:12px;">Create Account</button>
+      <p class="text-center" style="margin-top:16px;font-size:0.9rem;">Already have an account? <a href="login.html" style="color:var(--sage);font-weight:600;">Login here</a></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom"><span>&copy; 2026 Learners Academy. All rights reserved.</span><span>Built with the Chalkboard &amp; Brass design system.</span></div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // Inline on purpose: keeps state→district logic self-contained on this
+  // page so it can never break due to a missing/misordered script include.
+  // NOTE: Indian district boundaries change periodically (states create/
+  // merge districts every year or two — Rajasthan and Ladakh both changed
+  // as recently as 2024). This list reflects the most recently confirmed
+  // official counts at the time of writing; double-check against your
+  // state government's site if you need it to be exact for legal/official use.
+  window.STATE_DISTRICTS = {
+    "Andhra Pradesh": ["Srikakulam","Parvathipuram Manyam","Vizianagaram","Visakhapatnam","Alluri Sitharama Raju","Anakapalli","Kakinada","East Godavari","Konaseema","West Godavari","Eluru","Krishna","NTR","Guntur","Palnadu","Bapatla","Prakasam","Nellore","Kurnool","Nandyal","Anantapur","Sri Sathya Sai","YSR Kadapa","Annamayya","Chittoor","Tirupati"],
+    "Arunachal Pradesh": ["Tawang","West Kameng","East Kameng","Pakke-Kessang","Papum Pare","Kurung Kumey","Kra Daadi","Lower Subansiri","Upper Subansiri","Kamle","West Siang","Shi Yomi","East Siang","Siang","Upper Siang","Lower Siang","Lepa Rada","Lohit","Namsai","Changlang","Tirap","Longding","Anjaw","Dibang Valley","Lower Dibang Valley"],
+    "Assam": ["Baksa","Barpeta","Biswanath","Bongaigaon","Cachar","Charaideo","Chirang","Darrang","Dhemaji","Dhubri","Dibrugarh","Dima Hasao","Goalpara","Golaghat","Hailakandi","Hojai","Jorhat","Kamrup","Kamrup Metropolitan","Karbi Anglong","Karimganj","Kokrajhar","Lakhimpur","Majuli","Morigaon","Nagaon","Nalbari","Sivasagar","Sonitpur","South Salmara-Mankachar","Tinsukia","Udalguri","West Karbi Anglong","Bajali","Tamulpur"],
+    "Bihar": ["Araria","Arwal","Aurangabad","Banka","Begusarai","Bhagalpur","Bhojpur","Buxar","Darbhanga","East Champaran","Gaya","Gopalganj","Jamui","Jehanabad","Kaimur","Katihar","Khagaria","Kishanganj","Lakhisarai","Madhepura","Madhubani","Munger","Muzaffarpur","Nalanda","Nawada","Patna","Purnia","Rohtas","Saharsa","Samastipur","Saran","Sheikhpura","Sheohar","Sitamarhi","Siwan","Supaul","Vaishali","West Champaran"],
+    "Chhattisgarh": ["Balod","Baloda Bazar","Balrampur","Bastar","Bemetara","Bijapur","Bilaspur","Dantewada","Dhamtari","Durg","Gariaband","Gaurela-Pendra-Marwahi","Janjgir-Champa","Jashpur","Kabirdham","Kanker","Khairagarh-Chhuikhadan-Gandai","Kondagaon","Korba","Koriya","Mahasamund","Manendragarh-Chirmiri-Bharatpur","Mohla-Manpur-Ambagarh Chowki","Mungeli","Narayanpur","Raigarh","Raipur","Rajnandgaon","Sakti","Sarangarh-Bilaigarh","Sukma","Surajpur","Surguja"],
+    "Goa": ["North Goa","South Goa"],
+    "Gujarat": ["Ahmedabad","Amreli","Anand","Aravalli","Banaskantha","Bharuch","Bhavnagar","Botad","Chhota Udepur","Dahod","Dang","Devbhoomi Dwarka","Gandhinagar","Gir Somnath","Jamnagar","Junagadh","Kheda","Kutch","Mahisagar","Mehsana","Morbi","Narmada","Navsari","Panchmahal","Patan","Porbandar","Rajkot","Sabarkantha","Surat","Surendranagar","Tapi","Vadodara","Valsad"],
+    "Haryana": ["Ambala","Bhiwani","Charkhi Dadri","Faridabad","Fatehabad","Gurugram","Hisar","Jhajjar","Jind","Kaithal","Karnal","Kurukshetra","Mahendragarh","Nuh","Palwal","Panchkula","Panipat","Rewari","Rohtak","Sirsa","Sonipat","Yamunanagar"],
+    "Himachal Pradesh": ["Bilaspur","Chamba","Hamirpur","Kangra","Kinnaur","Kullu","Lahaul and Spiti","Mandi","Shimla","Sirmaur","Solan","Una"],
+    "Jharkhand": ["Bokaro","Chatra","Deoghar","Dhanbad","Dumka","East Singhbhum","Garhwa","Giridih","Godda","Gumla","Hazaribagh","Jamtara","Khunti","Koderma","Latehar","Lohardaga","Pakur","Palamu","Ramgarh","Ranchi","Sahebganj","Seraikela Kharsawan","Simdega","West Singhbhum"],
+    "Karnataka": ["Bagalkot","Ballari","Belagavi","Bengaluru Rural","Bengaluru Urban","Bidar","Chamarajanagar","Chikballapur","Chikkamagaluru","Chitradurga","Dakshina Kannada","Davanagere","Dharwad","Gadag","Hassan","Haveri","Kalaburagi","Kodagu","Kolar","Koppal","Mandya","Mysuru","Raichur","Ramanagara","Shivamogga","Tumakuru","Udupi","Uttara Kannada","Vijayapura","Vijayanagara","Yadgir"],
+    "Kerala": ["Alappuzha","Ernakulam","Idukki","Kannur","Kasaragod","Kollam","Kottayam","Kozhikode","Malappuram","Palakkad","Pathanamthitta","Thiruvananthapuram","Thrissur","Wayanad"],
+    "Madhya Pradesh": ["Agar Malwa","Alirajpur","Anuppur","Ashoknagar","Balaghat","Barwani","Betul","Bhind","Bhopal","Burhanpur","Chhatarpur","Chhindwara","Damoh","Datia","Dewas","Dhar","Dindori","Guna","Gwalior","Harda","Hoshangabad (Narmadapuram)","Indore","Jabalpur","Jhabua","Katni","Khandwa","Khargone","Mahasamund","Maihar","Mandla","Mandsaur","Mauganj","Morena","Narsinghpur","Neemuch","Niwari","Pandhurna","Panna","Raisen","Rajgarh","Ratlam","Rewa","Sagar","Satna","Sehore","Seoni","Shahdol","Shajapur","Sheopur","Shivpuri","Sidhi","Singrauli","Tikamgarh","Ujjain","Umaria","Vidisha"],
+    "Maharashtra": ["Ahmednagar","Akola","Amravati","Chhatrapati Sambhajinagar (Aurangabad)","Beed","Bhandara","Buldhana","Chandrapur","Dhule","Gadchiroli","Gondia","Hingoli","Jalgaon","Jalna","Kolhapur","Latur","Mumbai City","Mumbai Suburban","Nagpur","Nanded","Nandurbar","Nashik","Dharashiv (Osmanabad)","Palghar","Parbhani","Pune","Raigad","Ratnagiri","Sangli","Satara","Sindhudurg","Solapur","Thane","Wardha","Washim","Yavatmal"],
+    "Manipur": ["Bishnupur","Chandel","Churachandpur","Imphal East","Imphal West","Jiribam","Kakching","Kamjong","Kangpokpi","Noney","Pherzawl","Senapati","Tamenglong","Tengnoupal","Thoubal","Ukhrul"],
+    "Meghalaya": ["East Garo Hills","East Jaintia Hills","East Khasi Hills","North Garo Hills","Ri Bhoi","South Garo Hills","South West Garo Hills","South West Khasi Hills","West Garo Hills","West Jaintia Hills","West Khasi Hills","Eastern West Khasi Hills"],
+    "Mizoram": ["Aizawl","Champhai","Hnahthial","Khawzawl","Kolasib","Lawngtlai","Lunglei","Mamit","Saiha","Saitual","Serchhip"],
+    "Nagaland": ["Chumoukedima","Dimapur","Kiphire","Kohima","Longleng","Mokokchung","Mon","Niuland","Noklak","Peren","Phek","Shamator","Tuensang","Tseminyu","Wokha","Zunheboto"],
+    "Odisha": ["Angul","Balangir","Balasore","Bargarh","Bhadrak","Boudh","Cuttack","Deogarh","Dhenkanal","Gajapati","Ganjam","Jagatsinghpur","Jajpur","Jharsuguda","Kalahandi","Kandhamal","Kendrapara","Kendujhar","Khordha","Koraput","Malkangiri","Mayurbhanj","Nabarangpur","Nayagarh","Nuapada","Puri","Rayagada","Sambalpur","Subarnapur","Sundargarh"],
+    "Punjab": ["Amritsar","Barnala","Bathinda","Faridkot","Fatehgarh Sahib","Fazilka","Ferozepur","Gurdaspur","Hoshiarpur","Jalandhar","Kapurthala","Ludhiana","Malerkotla","Mansa","Moga","Muktsar","Pathankot","Patiala","Rupnagar","Sahibzada Ajit Singh Nagar (Mohali)","Sangrur","Shaheed Bhagat Singh Nagar","Tarn Taran"],
+    "Rajasthan": ["Ajmer","Alwar","Balotra","Banswara","Baran","Barmer","Beawar","Bharatpur","Bhilwara","Bikaner","Bundi","Chittorgarh","Churu","Dausa","Deeg","Dholpur","Dudu","Sri Ganganagar","Hanumangarh","Jaipur","Jaipur Rural","Jaisalmer","Jalore","Jhalawar","Jhunjhunu","Jodhpur","Jodhpur Rural","Karauli","Kekri","Khairthal-Tijara","Kota","Kotputli-Behror","Nagaur","Neem Ka Thana","Pali","Phalodi","Pratapgarh","Rajsamand","Salumbar","Sawai Madhopur","Shahpura","Sikar","Sirohi","Tonk","Udaipur"],
+    "Sikkim": ["Gangtok","Mangan","Namchi","Gyalshing","Pakyong","Soreng"],
+    "Tamil Nadu": ["Ariyalur","Chengalpattu","Chennai","Coimbatore","Cuddalore","Dharmapuri","Dindigul","Erode","Kallakurichi","Kancheepuram","Kanyakumari","Karur","Krishnagiri","Madurai","Mayiladuthurai","Nagapattinam","Namakkal","Nilgiris","Perambalur","Pudukkottai","Ramanathapuram","Ranipet","Salem","Sivaganga","Tenkasi","Thanjavur","Theni","Thoothukudi","Tiruchirappalli","Tirunelveli","Tirupathur","Tiruppur","Tiruvallur","Tiruvannamalai","Tiruvarur","Vellore","Viluppuram","Virudhunagar"],
+    "Telangana": ["Adilabad","Bhadradri Kothagudem","Hanumakonda","Hyderabad","Jagtial","Jangaon","Jayashankar Bhupalpally","Jogulamba Gadwal","Kamareddy","Karimnagar","Khammam","Komaram Bheem Asifabad","Mahabubabad","Mahabubnagar","Mancherial","Medak","Medchal-Malkajgiri","Mulugu","Nagarkurnool","Nalgonda","Narayanpet","Nirmal","Nizamabad","Peddapalli","Rangareddy","Sangareddy","Siddipet","Suryapet","Vikarabad","Wanaparthy","Warangal","Yadadri Bhuvanagiri"],
+    "Tripura": ["Dhalai","Gomati","Khowai","North Tripura","Sepahijala","South Tripura","Unakoti","West Tripura"],
+    "Uttar Pradesh": ["Agra","Aligarh","Ambedkar Nagar","Amethi","Amroha","Auraiya","Ayodhya","Azamgarh","Baghpat","Bahraich","Ballia","Balrampur","Banda","Barabanki","Bareilly","Basti","Bhadohi","Bijnor","Budaun","Bulandshahr","Chandauli","Chitrakoot","Deoria","Etah","Etawah","Farrukhabad","Fatehpur","Firozabad","Gautam Buddha Nagar","Ghaziabad","Ghazipur","Gonda","Gorakhpur","Hamirpur","Hapur","Hardoi","Hathras","Jalaun","Jaunpur","Jhansi","Kannauj","Kanpur Dehat","Kanpur Nagar","Kasganj","Kaushambi","Kheri","Kushinagar","Lalitpur","Lucknow","Maharajganj","Mahoba","Mainpuri","Mathura","Mau","Meerut","Mirzapur","Moradabad","Muzaffarnagar","Pilibhit","Pratapgarh","Prayagraj","Raebareli","Rampur","Saharanpur","Sambhal","Sant Kabir Nagar","Shahjahanpur","Shamli","Shrawasti","Siddharthnagar","Sitapur","Sonbhadra","Sultanpur","Unnao","Varanasi"],
+    "Uttarakhand": ["Almora","Bageshwar","Chamoli","Champawat","Dehradun","Haridwar","Nainital","Pauri Garhwal","Pithoragarh","Rudraprayag","Tehri Garhwal","Udham Singh Nagar","Uttarkashi"],
+    "West Bengal": ["Alipurduar","Bankura","Birbhum","Cooch Behar","Dakshin Dinajpur","Darjeeling","Hooghly","Howrah","Jalpaiguri","Jhargram","Kalimpong","Kolkata","Malda","Murshidabad","Nadia","North 24 Parganas","Paschim Bardhaman","Paschim Medinipur","Purba Bardhaman","Purba Medinipur","Purulia","South 24 Parganas","Uttar Dinajpur"],
+    "Delhi": ["Central Delhi","East Delhi","New Delhi","North Delhi","North East Delhi","North West Delhi","Shahdara","South Delhi","South East Delhi","South West Delhi","West Delhi"],
+    "Jammu and Kashmir": ["Anantnag","Bandipora","Baramulla","Budgam","Doda","Ganderbal","Jammu","Kathua","Kishtwar","Kulgam","Kupwara","Poonch","Pulwama","Rajouri","Ramban","Reasi","Samba","Shopian","Srinagar","Udhampur"],
+    "Ladakh": ["Leh","Kargil"],
+    "Chandigarh": ["Chandigarh"],
+    "Puducherry": ["Puducherry","Karaikal","Mahe","Yanam"]
+  };
+
+  (function () {
+    const stateSelect = document.getElementById('state');
+    const citySelect = document.getElementById('city');
+    if (!stateSelect || !citySelect) return;
+    stateSelect.addEventListener('change', function () {
+      const districts = window.STATE_DISTRICTS[stateSelect.value] || [];
+      if (!districts.length) {
+        citySelect.innerHTML = '<option value="">Select state first</option>';
+        citySelect.disabled = true;
+        return;
+      }
+      citySelect.disabled = false;
+      citySelect.innerHTML = '<option value="">Select district</option>' +
+        districts.map(function (d) { return '<option value="' + d + '">' + d + '</option>'; }).join('');
+    });
+  })();
+</script>
+</body>
+</html>
